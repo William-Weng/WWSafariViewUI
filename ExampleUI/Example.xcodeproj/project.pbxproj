@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		813A71D92FECD3E400AC9620 /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 813A71D82FECD3E400AC9620 /* WWSafariViewUI */; };
+		813A72672FECD5F100AC9620 /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 813A72662FECD5F100AC9620 /* WWSafariViewUI */; };
+		813A726B2FECD62200AC9620 /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 813A726A2FECD62200AC9620 /* WWSafariViewUI */; };
+		813A726E2FECD64300AC9620 /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 813A726D2FECD64300AC9620 /* WWSafariViewUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				813A71D92FECD3E400AC9620 /* WWSafariViewUI in Frameworks */,
+				813A72672FECD5F100AC9620 /* WWSafariViewUI in Frameworks */,
+				813A726B2FECD62200AC9620 /* WWSafariViewUI in Frameworks */,
+				813A726E2FECD64300AC9620 /* WWSafariViewUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,9 @@
 			name = Example;
 			packageProductDependencies = (
 				813A71D82FECD3E400AC9620 /* WWSafariViewUI */,
+				813A72662FECD5F100AC9620 /* WWSafariViewUI */,
+				813A726A2FECD62200AC9620 /* WWSafariViewUI */,
+				813A726D2FECD64300AC9620 /* WWSafariViewUI */,
 			);
 			productName = Example;
 			productReference = 8177C5772F91CB0F00ACEA3E /* Example.app */;
@@ -84,7 +93,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					8177C5762F91CB0F00ACEA3E = {
 						CreatedOnToolsVersion = 16.4;
@@ -101,7 +110,7 @@
 			mainGroup = 8177C56E2F91CB0F00ACEA3E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				813A71D72FECD3E400AC9620 /* XCLocalSwiftPackageReference "../../@WWSafariViewUI" */,
+				813A726C2FECD64300AC9620 /* XCRemoteSwiftPackageReference "WWSafariViewUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8177C5782F91CB0F00ACEA3E /* Products */;
@@ -193,6 +202,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -250,6 +260,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -344,16 +355,33 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		813A71D72FECD3E400AC9620 /* XCLocalSwiftPackageReference "../../@WWSafariViewUI" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../@WWSafariViewUI";
+/* Begin XCRemoteSwiftPackageReference section */
+		813A726C2FECD64300AC9620 /* XCRemoteSwiftPackageReference "WWSafariViewUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/William-Weng/WWSafariViewUI";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		813A71D82FECD3E400AC9620 /* WWSafariViewUI */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = WWSafariViewUI;
+		};
+		813A72662FECD5F100AC9620 /* WWSafariViewUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WWSafariViewUI;
+		};
+		813A726A2FECD62200AC9620 /* WWSafariViewUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WWSafariViewUI;
+		};
+		813A726D2FECD64300AC9620 /* WWSafariViewUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 813A726C2FECD64300AC9620 /* XCRemoteSwiftPackageReference "WWSafariViewUI" */;
 			productName = WWSafariViewUI;
 		};
 /* End XCSwiftPackageProductDependency section */

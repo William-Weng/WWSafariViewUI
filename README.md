@@ -11,6 +11,8 @@
 
 `WWSafariViewUI` 是一個以 SwiftUI 包裝 `SFSafariViewController` 的輕量元件，讓你可以直接在 SwiftUI 專案中，用原生 Safari 體驗開啟網頁內容，而不需要自行撰寫 `UIViewControllerRepresentable` 橋接程式。
 
+https://github.com/William-Weng/WWSafariViewUI
+
 ## ✨ 功能特色
 
 - 使用 `SFSafariViewController` 在 App 內開啟網頁，保留 Safari 的標準瀏覽體驗與安全性。
