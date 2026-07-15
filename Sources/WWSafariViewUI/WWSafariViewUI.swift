@@ -13,9 +13,8 @@ import SafariServices
 /// 此視圖使用 `SFSafariViewController` 在 App 內顯示指定網址，適合用於快速開啟外部網頁內容，同時保留 Safari 的標準瀏覽體驗
 public struct WWSafariViewUI {
     
-    let url: URL
-    
-    private var entersReaderIfAvailable = false
+    private let url: URL
+    private let entersReaderIfAvailable: Bool
     
     private var onLoadComplete: ((SFSafariViewController, Bool) -> Void)? = nil     // Safari 載入完成時的回呼變數
     private var onFinish: ((SFSafariViewController) -> Void)? = nil                 // Safari 畫面關閉（點擊 Done）時要執行的回呼
