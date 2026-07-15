@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/William-Weng/WWSafariViewUI",
       "state" : {
-        "revision" : "350ec7b78edd267b4c5e0f425e9a4083f4605199",
-        "version" : "1.0.0"
+        "revision" : "ebd2586db901b751926fb666e8ab188bcd5a05e9",
+        "version" : "1.1.0"
       }
     }
   ],
