@@ -18,6 +18,12 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showSafari) {
             WWSafariViewUI(url: URL(string: "https://www.apple.com")!)
+                .onLoadComplete({ controller, didLoadSuccessfully in
+                    print(didLoadSuccessfully)
+                })
+                .onFinish { controller in
+                    print(controller)
+                }
         }
     }
 }

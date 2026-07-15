@@ -34,7 +34,7 @@ You can also add it manually in `Package.swift`:
 
 ```swift
 .dependencies: [
-    .package(url: "https://github.com/William-Weng/WWSafariViewUI.git", from: "1.0.0")
+    .package(url: "https://github.com/William-Weng/WWSafariViewUI.git", from: "1.1.0")
 ]
 ```
 
@@ -99,15 +99,28 @@ WWSafariViewUI(
 
 `entersReaderIfAvailable` only takes effect when Reader mode is available for the page, which is usually suitable for regular article pages rather than PDFs or raw Markdown files.
 
-### Handle dismissal
+### Handle Event
 
 ```swift
-WWSafariViewUI(
-    url: URL(string: "https://www.apple.com")!,
-    onFinish: {
-        print("Safari was dismissed")
+struct ContentView: View {
+    
+    @State private var showSafari = false
+    
+    var body: some View {
+        Button("開啟 Apple") {
+            showSafari = true
+        }
+        .sheet(isPresented: $showSafari) {
+            WWSafariViewUI(url: URL(string: "https://www.apple.com")!)
+                .onLoadComplete({ controller, didLoadSuccessfully in
+                    print(didLoadSuccessfully)
+                })
+                .onFinish { controller in
+                    print(controller)
+                }
+        }
     }
-)
+}
 ```
 
 When the user dismisses `SFSafariViewController`, the delegate receives a finish event, which you can use for cleanup or follow-up actions.
@@ -143,8 +156,7 @@ This pattern works well for lists, cards, bookmark screens, and other flows driv
 ```swift
 public init(
     url: URL,
-    entersReaderIfAvailable: Bool = false,
-    onFinish: (() -> Void)? = nil
+    entersReaderIfAvailable: Bool = false
 )
 ```
 
@@ -152,7 +164,8 @@ public init(
 |---|---|---|
 | `url` | `URL` | The web page URL to open. |
 | `entersReaderIfAvailable` | `Bool` | Whether to automatically enter Reader mode when available. |
-| `onFinish` | `(() -> Void)?` | A callback invoked when the Safari view is dismissed. |
+| `onLoadComplete` | `((controller, didLoadSuccessfully) -> Void)?` | A callback closure triggered when Safari finishes its initial page load. |
+| `onFinish` | `((controller) -> Void)?` | A callback invoked when the Safari view is dismissed. |
 
 ## 🎯 Use Cases
 

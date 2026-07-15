@@ -34,7 +34,7 @@ https://github.com/user-attachments/assets/0129c35d-d86d-4a6d-9b93-f3b14c9103be
 
 ```swift
 .dependencies: [
-    .package(url: "https://github.com/William-Weng/WWSafariViewUI.git", from: "1.0.0")
+    .package(url: "https://github.com/William-Weng/WWSafariViewUI.git", from: "1.1.0")
 ]
 ```
 
@@ -95,15 +95,28 @@ WWSafariViewUI(
 
 `entersReaderIfAvailable` 只有在 Safari Reader 模式支援該頁面時才會生效，通常適合一般文章頁，而不是 PDF 或原始 Markdown 檔案。
 
-### 監聽關閉事件
+### 監聽事件
 
 ```swift
-WWSafariViewUI(
-    url: URL(string: "https://www.apple.com")!,
-    onFinish: {
-        print("Safari 已關閉")
+struct ContentView: View {
+    
+    @State private var showSafari = false
+    
+    var body: some View {
+        Button("開啟 Apple") {
+            showSafari = true
+        }
+        .sheet(isPresented: $showSafari) {
+            WWSafariViewUI(url: URL(string: "https://www.apple.com")!)
+                .onLoadComplete({ controller, didLoadSuccessfully in
+                    print(didLoadSuccessfully)
+                })
+                .onFinish { controller in
+                    print(controller)
+                }
+        }
     }
-)
+}
 ```
 
 當使用者關閉 `SFSafariViewController` 時，delegate 會收到完成事件，你可以在這裡做收尾處理。
@@ -139,8 +152,7 @@ struct ContentView: View {
 ```swift
 public init(
     url: URL,
-    entersReaderIfAvailable: Bool = false,
-    onFinish: (() -> Void)? = nil
+    entersReaderIfAvailable: Bool = false
 )
 ```
 
@@ -148,7 +160,8 @@ public init(
 |---|---|---|
 | `url` | `URL` | 要開啟的網址。 |
 | `entersReaderIfAvailable` | `Bool` | 是否在支援時自動進入閱讀器模式。 |
-| `onFinish` | `(() -> Void)?` | Safari 畫面關閉時執行的回呼。 |
+| `onLoadComplete` | `((controller, didLoadSuccessfully) -> Void)?` | Safari 載入完成時的回呼變數。 |
+| `onFinish` | `((controller) -> Void)?` | Safari 畫面關閉時執行的回呼。 |
 
 ## 🎯 使用情境
 

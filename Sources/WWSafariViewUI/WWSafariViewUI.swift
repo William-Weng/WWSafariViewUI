@@ -15,19 +15,18 @@ public struct WWSafariViewUI {
     
     let url: URL
     
-    var entersReaderIfAvailable = false
+    private var entersReaderIfAvailable = false
     
-    var onFinish: (() -> Void)? = nil
+    private var onLoadComplete: ((SFSafariViewController, Bool) -> Void)? = nil     // Safari 載入完成時的回呼變數
+    private var onFinish: ((SFSafariViewController) -> Void)? = nil                 // Safari 畫面關閉（點擊 Done）時要執行的回呼
     
     /// 初始化`WWSafariViewUI`
     /// - Parameters:
     ///   - url: 要開啟的網址
     ///   - entersReaderIfAvailable: 是否在支援時自動進入閱讀器模式 (此選項僅在 Safari Reader 模式可用時才會生效)
-    ///   - onFinish: Safari 畫面關閉時要執行的回呼
-    public init(url: URL, entersReaderIfAvailable: Bool = false, onFinish: (() -> Void)? = nil) {
+    public init(url: URL, entersReaderIfAvailable: Bool = false) {
         self.url = url
         self.entersReaderIfAvailable = entersReaderIfAvailable
-        self.onFinish = onFinish
     }
 }
 
@@ -38,7 +37,7 @@ extension WWSafariViewUI: UIViewControllerRepresentable {
     ///
     /// - Returns: 負責轉接 UIKit delegate 事件的協調器物件
     public func makeCoordinator() -> Coordinator {
-        Coordinator(onFinish: onFinish)
+        Coordinator()
     }
     
     /// 建立 `SFSafariViewController`
@@ -64,5 +63,28 @@ extension WWSafariViewUI: UIViewControllerRepresentable {
     /// - Parameters:
     ///   - uiViewController: 目前顯示中的 Safari 視圖控制器
     ///   - context: SwiftUI 提供的上下文資訊
-    public func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
+    public func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
+        context.coordinator.onLoadComplete = onLoadComplete
+        context.coordinator.onFinish = onFinish
+    }
+}
+
+// MARK: - SwiftUI 鏈式修飾符 (Modifiers)
+public extension WWSafariViewUI {
+    
+    /// 設定 Safari 網頁初始載入完成時要執行的回呼
+    /// - Parameter action: 載入完成時執行的閉包，`Bool` 代表是否載入成功
+    func onLoadComplete(_ action: @escaping (_ controller: SFSafariViewController, _ didLoadSuccessfully: Bool) -> Void) -> Self {
+        var copy = self
+        copy.onLoadComplete = action
+        return copy
+    }
+    
+    /// 設定 Safari 畫面關閉（點擊 Done）時要執行的回呼
+    /// - Parameter action: 關閉時執行的閉包
+    func onFinish(_ action: @escaping (_ controller: SFSafariViewController) -> Void) -> Self {
+        var copy = self
+        copy.onFinish = action
+        return copy
+    }
 }

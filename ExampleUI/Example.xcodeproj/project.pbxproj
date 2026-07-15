@@ -10,7 +10,8 @@
 		813A71D92FECD3E400AC9620 /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 813A71D82FECD3E400AC9620 /* WWSafariViewUI */; };
 		813A72672FECD5F100AC9620 /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 813A72662FECD5F100AC9620 /* WWSafariViewUI */; };
 		813A726B2FECD62200AC9620 /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 813A726A2FECD62200AC9620 /* WWSafariViewUI */; };
-		813A726E2FECD64300AC9620 /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 813A726D2FECD64300AC9620 /* WWSafariViewUI */; };
+		81CEC531300727BF0018C7BF /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 81CEC530300727BF0018C7BF /* WWSafariViewUI */; };
+		81CEC53430072E570018C7BF /* WWSafariViewUI in Frameworks */ = {isa = PBXBuildFile; productRef = 81CEC53330072E570018C7BF /* WWSafariViewUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 				813A71D92FECD3E400AC9620 /* WWSafariViewUI in Frameworks */,
 				813A72672FECD5F100AC9620 /* WWSafariViewUI in Frameworks */,
 				813A726B2FECD62200AC9620 /* WWSafariViewUI in Frameworks */,
-				813A726E2FECD64300AC9620 /* WWSafariViewUI in Frameworks */,
+				81CEC531300727BF0018C7BF /* WWSafariViewUI in Frameworks */,
+				81CEC53430072E570018C7BF /* WWSafariViewUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +81,8 @@
 				813A71D82FECD3E400AC9620 /* WWSafariViewUI */,
 				813A72662FECD5F100AC9620 /* WWSafariViewUI */,
 				813A726A2FECD62200AC9620 /* WWSafariViewUI */,
-				813A726D2FECD64300AC9620 /* WWSafariViewUI */,
+				81CEC530300727BF0018C7BF /* WWSafariViewUI */,
+				81CEC53330072E570018C7BF /* WWSafariViewUI */,
 			);
 			productName = Example;
 			productReference = 8177C5772F91CB0F00ACEA3E /* Example.app */;
@@ -110,7 +113,7 @@
 			mainGroup = 8177C56E2F91CB0F00ACEA3E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				813A726C2FECD64300AC9620 /* XCRemoteSwiftPackageReference "WWSafariViewUI" */,
+				81CEC53230072E570018C7BF /* XCRemoteSwiftPackageReference "WWSafariViewUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8177C5782F91CB0F00ACEA3E /* Products */;
@@ -356,12 +359,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		813A726C2FECD64300AC9620 /* XCRemoteSwiftPackageReference "WWSafariViewUI" */ = {
+		81CEC53230072E570018C7BF /* XCRemoteSwiftPackageReference "WWSafariViewUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWSafariViewUI";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -379,9 +382,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = WWSafariViewUI;
 		};
-		813A726D2FECD64300AC9620 /* WWSafariViewUI */ = {
+		81CEC530300727BF0018C7BF /* WWSafariViewUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 813A726C2FECD64300AC9620 /* XCRemoteSwiftPackageReference "WWSafariViewUI" */;
+			productName = WWSafariViewUI;
+		};
+		81CEC53330072E570018C7BF /* WWSafariViewUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81CEC53230072E570018C7BF /* XCRemoteSwiftPackageReference "WWSafariViewUI" */;
 			productName = WWSafariViewUI;
 		};
 /* End XCSwiftPackageProductDependency section */
